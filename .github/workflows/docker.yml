@@ -12,6 +12,6 @@ jobs:
           fetch-depth: 1
       - name: Build
         run: |
-          echo "${{secrets.PACKAGE_TOKEN}}" | docker login docker.pkg.github.com -u starudream --password-stdin
-          docker build -t docker.pkg.github.com/starudream/workflows-test/test:latest .
-          docker push docker.pkg.github.com/starudream/workflows-test/test:latest
+          echo "${{secrets.DOCKER_TOKEN}}" | docker login -u starudream --password-stdin
+          docker build -t starudream/test:latest .
+          docker push starudream/test:latest
