@@ -12,5 +12,6 @@ jobs:
           fetch-depth: 1
       - name: Build
         run: |
+          chmod +x build.sh
           ./build.sh test1
           ./build.sh test2
