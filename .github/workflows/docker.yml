@@ -12,6 +12,5 @@ jobs:
           fetch-depth: 1
       - name: Build
         run: |
-          echo "${{secrets.DOCKER_TOKEN}}" | docker login -u starudream --password-stdin
-          docker build -t starudream/test:latest .
-          docker push starudream/test:latest
+          ./build.sh test1
+          ./build.sh test2
