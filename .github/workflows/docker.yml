@@ -20,3 +20,5 @@ jobs:
       - name: Build
         run: |
           chmod +x build.sh && ./build.sh test
+          echo ${{secrets.GITHUB_REPOSITORY}}
+          echo ${REPOSITORY}
