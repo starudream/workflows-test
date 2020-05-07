@@ -13,10 +13,16 @@ docker login -u starudream -p "${DOCKER_TOKEN}"
 echo -e "\033[32m[ Publish Docker Hub ]\033[0m"
 docker push starudream/"${NAME}":latest
 
+echo -e "\033[32m[ Login GitHub Package ]\033[0m"
+docker login -u starudream -p "${PACKAGE_TOKEN}" docker.pkg.github.com
+echo -e "\033[32m[ Publish GitHub Package ]\033[0m"
+docker tag starudream/"${NAME}":latest docker.pkg.github.com/starudream/workflows-test/"${NAME}":latest
+docker push docker.pkg.github.com/starudream/docker-image/"${NAME}":latest
+
 echo -e "\033[32m[ Login Aliyun Docker ]\033[0m"
-docker login -u "${ALIYUN_DOCKER_USERNAME}" -p "${ALIYUN_DOCKER_TOKEN}" registry.cn-shanghai.aliyuncs.com 1>/dev/null
+docker login -u "${ALIYUN_DOCKER_USERNAME}" -p "${ALIYUN_DOCKER_TOKEN}" registry.cn-shanghai.aliyuncs.coml
 echo -e "\033[32m[ Publish Aliyun Docker ]\033[0m"
-docker tag starudream/"${NAME}":latest registry.cn-shanghai.aliyuncs.com/starudream/"${NAME}":latest 1>/dev/null
+docker tag starudream/"${NAME}":latest registry.cn-shanghai.aliyuncs.com/starudream/"${NAME}":latest
 docker push registry.cn-shanghai.aliyuncs.com/starudream/"${NAME}":latest
 
 echo -e "\033[34m[ End '${NAME}' ]\033[0m"
