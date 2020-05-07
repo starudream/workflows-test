@@ -3,7 +3,6 @@ on:
   - push
 env:
   USERNAME: starudream
-  REPOSITORY: ${{GITHUB_REPOSITORY}}
   DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
   PACKAGE_TOKEN: ${{secrets.PACKAGE_TOKEN}}
   ALIYUN_DOCKER_USERNAME: ${{secrets.ALIYUN_DOCKER_USERNAME}}
@@ -20,5 +19,4 @@ jobs:
       - name: Build
         run: |
           chmod +x build.sh && ./build.sh test
-          echo ${{GITHUB_REPOSITORY}}
-          echo ${REPOSITORY}
+          echo ${GITHUB_REPOSITORY}
