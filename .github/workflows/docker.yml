@@ -2,6 +2,8 @@ name: Docker
 on:
   - push
 env:
+  USERNAME: starudream
+  REPOSITORY: ${{secrets.GITHUB_REPOSITORY}}
   DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
   PACKAGE_TOKEN: ${{secrets.PACKAGE_TOKEN}}
   ALIYUN_DOCKER_USERNAME: ${{secrets.ALIYUN_DOCKER_USERNAME}}
